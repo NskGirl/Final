@@ -7,28 +7,27 @@ fake = Faker()
 load_dotenv()
 my_headers = {"Authorization": os.getenv("TOKEN")}
 
-def create_goal(name):
+def create_space(name):
     body = {
         "name": name
     }
-    new_goal = requests.post(os.getenv("API_URL") + "/team/90151259069/goal", headers=my_headers, json=body)
-    print(new_goal)
-    return new_goal
+    new_space = requests.post(os.getenv("API_URL") + "/team/90151259069/space", headers=my_headers, json=body)
+    return new_space
 
-def delete_goal(id):
-    deleted_goal = requests.delete(os.getenv("API_URL") + "/goal/" + id, headers=my_headers)
-    return deleted_goal
+def delete_space(id):
+    deleted_space = requests.delete(os.getenv("API_URL") + "/space/" + id, headers=my_headers)
+    return deleted_space
 
-def create_not_valid_goal(name):
+def create_not_valid_space(name):
     body = {
         "name": name
     }
-    not_valid_goal = requests.post(os.getenv("API_URL") + "/team/not_valid/goal", headers=my_headers, json=body)
-    return not_valid_goal
+    not_valid_space = requests.post(os.getenv("API_URL") + "/team/not_valid/space", headers=my_headers, json=body)
+    return not_valid_space
 
-def update_goal(name, id):
+def update_space(name, id):
     body = {
         "name": name
     }
-    update_goal = requests.put(os.getenv("API_URL") + "/goal/" + id, headers=my_headers, json=body)
-    return update_goal
+    update_space = requests.put(os.getenv("API_URL") + "/space/" + id, headers=my_headers, json=body)
+    return update_space
